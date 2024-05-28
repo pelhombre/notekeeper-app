@@ -1,10 +1,10 @@
 import { Note } from "./Note";
 import PropTypes from 'prop-types';
 
-export const NotesList = ({ notes, handleSetNotes }) => {
+export const NotesList = ({ note, handleSetNotes }) => {
   return (
     <ul>
-      {notes.map((note, index) => (
+      {note.map((note, index) => (
         <Note key={index} note={note} handleSetNotes={handleSetNotes} handleSetUpdate={() => {}} />
       ))}
     </ul>

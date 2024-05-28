@@ -1,6 +1,6 @@
 const getData = ({ url, resourcePath }) => {
     const URL_TO_FETCH = `${url}/${resourcePath}`;
-  
+    const BASE_URL = import.meta.env.VITE_API_BASE_URL;
     return globalThis.fetch(URL_TO_FETCH).then((response) => response.json());
   };
   

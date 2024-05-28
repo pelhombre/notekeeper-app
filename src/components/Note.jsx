@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import { handleDeleteNote } from "../helpers/handlers";
 import { Button } from "./shared";
-import PropTypes from 'prop-types';
 
-export const Note = ({ note, handleSetNotes, handleSetUpdate }) => {
+const Note = ({ note, handleSetNotes, handleSetUpdate }) => {
   return (
     <li>
       {`${note.name} | ${note.description} | IMPORTANTE: ${note.important}`}
@@ -28,3 +28,5 @@ Note.propTypes = {
   handleSetNotes: PropTypes.func.isRequired,
   handleSetUpdate: PropTypes.func.isRequired,
 };
+
+export default Note;
