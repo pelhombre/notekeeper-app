@@ -1,4 +1,5 @@
 import { Note } from "./Note";
+import PropTypes from 'prop-types';
 
 export const NotesList = ({ notes, handleSetNotes }) => {
   return (
@@ -8,4 +9,16 @@ export const NotesList = ({ notes, handleSetNotes }) => {
       ))}
     </ul>
   );
+};
+
+NotesList.propTypes = {
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      important: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+  handleSetNotes: PropTypes.func.isRequired,
 };

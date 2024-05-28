@@ -1,8 +1,8 @@
 import { handleCreateNote } from "../helpers/handlers/handleCreateNote";
 import { STATUS } from "../data";
 import { Button } from "./shared";
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 export const CreateNoteForm = ({ notes, handleSetNotes }) => {
   const handleSubmit = (event) => {
@@ -40,9 +40,8 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
     </form>
   );
 };
+
 CreateNoteForm.propTypes = {
-    notes: PropTypes.array.isRequired,
-    handleSetNotes: PropTypes.func.isRequired,
-  };
-
-
+  notes: PropTypes.array.isRequired,
+  handleSetNotes: PropTypes.func.isRequired,
+};
