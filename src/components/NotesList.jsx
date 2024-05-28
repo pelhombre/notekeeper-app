@@ -1,24 +1,16 @@
-import { Note } from "./Note";
-import PropTypes from 'prop-types';
+import { NoteItem } from "./NoteItem";
 
 export const NotesList = ({ notes, handleSetNotes }) => {
   return (
     <ul>
       {notes.map((note, index) => (
-        <Note key={index} note={note} handleSetNotes={handleSetNotes} />
+        <NoteItem
+          key={index}
+          note={note}
+          notes={notes}
+          handleSetNotes={handleSetNotes}
+        />
       ))}
     </ul>
   );
-};
-
-NotesList.propTypes = {
-  notes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      important: PropTypes.bool.isRequired,
-    })
-  ).isRequired,
-  handleSetNotes: PropTypes.func.isRequired,
 };

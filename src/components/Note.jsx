@@ -1,25 +1,17 @@
 import { handleDeleteNote } from "../helpers/handlers";
 import { Button } from "./shared";
-import PropTypes from 'prop-types';
 
-export const Note = ({ note, handleSetNotes }) => {
+export const Note = ({ note, handleSetNotes, handleSetUpdate }) => {
+  const importance = note.important ? "important" : "";
+
   return (
-    <li>
+    <li className={`note-element ${importance}`}>
       {`${note.name} | ${note.description} | IMPORTANT: ${note.important}`}
       <Button
         action={() => handleDeleteNote(note.id, handleSetNotes)}
         label="Delete"
       />
+      <Button action={() => handleSetUpdate()} label="Edit" />
     </li>
   );
-};
-
-Note.propTypes = {
-  note: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    important: PropTypes.bool.isRequired,
-  }).isRequired,
-  handleSetNotes: PropTypes.func.isRequired,
 };
