@@ -11,7 +11,7 @@ export const useNotes = () => {
         setNotes([...notes]);
       })
       .catch(error => console.error('Error fetching notes:', error));
-  }, []);
+  }, []);  
 
   const handleSetNotes = (newNotes) => {
     setNotes(newNotes);

@@ -20,6 +20,8 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
     event.target.reset();
   };
 
+  const selectedStatusValue = "SomeStatus";
+
   return (
     <form className="create-note__form" onSubmit={handleSubmit}>
       <label className="input-label" htmlFor="name">
@@ -50,7 +52,7 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
         <label className="input-label" htmlFor="important">
           Important
         </label>
-        <DropdownList OPTIONS={STATUS} />
+        <DropdownList selectedStatus={selectedStatusValue} OPTIONS={STATUS} />
       </fieldset>
       <Button className="submit-button" type="submit" action={handleSubmit} label="Create Note" />
     </form>
