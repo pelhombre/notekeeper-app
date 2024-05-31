@@ -1,0 +1,1 @@
+export { handleDeleteNote } from "./handleDeleteNote";
