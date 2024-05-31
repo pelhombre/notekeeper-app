@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
-import { noteServices } from "../services";
+import { noteServices } from "../services/noteServices";
 
 export const useNotes = () => {
   const [notes, setNotes] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     noteServices.getNotes()
       .then((notes) => {
-        console.log(notes); // Ver la respuesta del servidor
-        setNotes([...notes]);
+        console.log(notes);
+        setNotes(notes);
       })
-      .catch(error => console.error('Error fetching notes:', error));
-  }, []);  
+      .catch(error => {
+        console.error('Error fetching notes:', error);
+        setError(error.message);
+      });
+  }, []);
 
   const handleSetNotes = (newNotes) => {
     setNotes(newNotes);
@@ -20,5 +24,6 @@ export const useNotes = () => {
   return {
     notes,
     handleSetNotes,
+    error
   };
 };
