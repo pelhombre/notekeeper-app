@@ -12,6 +12,8 @@ const getData = async ({ resourcePath }) => {
     }
     const contentType = response.headers.get("content-type");
     if (!contentType || !contentType.includes("application/json")) {
+      const body = await response.text(); 
+      console.log(`Response body: ${body}`);
       throw new Error("Response is not JSON");
     }
     return await response.json();
@@ -20,6 +22,7 @@ const getData = async ({ resourcePath }) => {
     throw error;
   }
 };
+
 
 const deleteData = async ({ resourcePath }) => {
   const URL_TO_FETCH = `${BASE_URL}/${resourcePath}`;
