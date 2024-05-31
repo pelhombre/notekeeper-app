@@ -12,7 +12,7 @@ const getData = async ({ resourcePath }) => {
     }
     const contentType = response.headers.get("content-type");
     if (!contentType || !contentType.includes("application/json")) {
-      const body = await response.text(); 
+      const body = await response.text(); // Obtener el cuerpo de la respuesta
       console.log(`Response body: ${body}`);
       throw new Error("Response is not JSON");
     }
@@ -22,6 +22,7 @@ const getData = async ({ resourcePath }) => {
     throw error;
   }
 };
+
 
 
 const deleteData = async ({ resourcePath }) => {
