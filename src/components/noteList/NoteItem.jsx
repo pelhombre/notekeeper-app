@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useUpdate } from "../../hooks";
 import { NoteBody } from "./NoteBody";
 import { UpdateNoteForm } from "./UpdateNoteForm";
-import { handleDeleteNote } from "../../helpers";
+import { handleDeleteNote } from "../../helpers/handlers/handleUpdateNote.js";
 import { Button } from "../shared";
 
 export const NoteItem = ({ note, notes, handleSetNotes }) => {

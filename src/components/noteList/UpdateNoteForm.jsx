@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { STATUS } from "../../data";
-import { handleUpdateNote } from "../../helpers";
+import { handleUpdateNote } from "../../helpers/handlers/handleUpdateNote.js";
 import { Button, DropdownList } from "../shared";
 import { useImportance } from "../../hooks/useImportance";
+
 
 export const UpdateNoteForm = ({
   updatingNote,

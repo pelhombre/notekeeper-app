@@ -1,5 +1,6 @@
-import { Header, CreateNoteForm, NotesList, Footer } from "./components";
-import { useNotes } from "./hooks";
+import { Header, CreateNoteForm, NotesList } from "./components";
+import { useNotes } from "./hooks/useNotes.js";
+
 
 function App() {
   const { notes, handleSetNotes } = useNotes();
@@ -11,7 +12,6 @@ function App() {
         <CreateNoteForm notes={notes} handleSetNotes={handleSetNotes} />
         <NotesList notes={notes} handleSetNotes={handleSetNotes} />
       </main>
-      <Footer />
     </>
   );
 }

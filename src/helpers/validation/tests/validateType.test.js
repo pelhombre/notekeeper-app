@@ -1,4 +1,4 @@
-import { validateType } from "../../validateType";
+import { validateType } from "../validateType";
 import { describe, test, expect } from "@jest/globals";
 
 describe("Given note object", () => {
