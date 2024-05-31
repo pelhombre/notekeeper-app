@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import { STATUS } from "../../data";
 import { handleUpdateNote } from "../../helpers";
 import { Button, DropdownList } from "../shared";
 import { useImportance } from "../../hooks/useImportance";
-
 
 export const UpdateNoteForm = ({
   updatingNote,
@@ -77,4 +77,27 @@ export const UpdateNoteForm = ({
       </div>
     </form>
   );
+};
+
+UpdateNoteForm.propTypes = {
+  updatingNote: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    dueDate: PropTypes.string,
+    important: PropTypes.bool,
+    status: PropTypes.string,
+  }).isRequired,
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      dueDate: PropTypes.string,
+      important: PropTypes.bool,
+      status: PropTypes.string,
+    })
+  ).isRequired,
+  handleSetNotes: PropTypes.func.isRequired,
+  handleSetUpdate: PropTypes.func.isRequired,
 };

@@ -1,8 +1,7 @@
+import PropTypes from 'prop-types';
 import { STATUS } from "../../data";
-import { handleCreateNote } from "../../helpers";
+import { handleCreateNote } from "../../helpers/handlers/handleCreateNote";
 import { Button, DropdownList } from "../shared";
-
-import "./CreateNoteForm.css";
 
 export const CreateNoteForm = ({ notes, handleSetNotes }) => {
   const handleSubmit = (event) => {
@@ -56,4 +55,9 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
       <Button className="submit-button" type="submit" label="Create Note" />
     </form>
   );
+};
+
+CreateNoteForm.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleSetNotes: PropTypes.func.isRequired,
 };

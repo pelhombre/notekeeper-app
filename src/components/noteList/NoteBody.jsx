@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import { Button } from "../shared";
-
 
 export const NoteBody = ({ note, handleSetUpdate }) => {
   return (
@@ -14,4 +14,13 @@ export const NoteBody = ({ note, handleSetUpdate }) => {
       </div>
     </article>
   );
+};
+
+NoteBody.propTypes = {
+  note: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    dueDate: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+  handleSetUpdate: PropTypes.func.isRequired,
 };

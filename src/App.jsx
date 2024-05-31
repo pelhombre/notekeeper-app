@@ -1,5 +1,4 @@
-import { NotesList, CreateNoteForm } from "./components";
-import { Header } from "./components";
+import { Header, CreateNoteForm, NotesList, Footer } from "./components";
 import { useNotes } from "./hooks";
 
 function App() {
@@ -7,9 +6,12 @@ function App() {
 
   return (
     <>
-      <Header heading="Notekeeper App" />
-      <CreateNoteForm notes={notes} handleSetNotes={handleSetNotes} />
-      <NotesList notes={notes} handleSetNotes={handleSetNotes} />
+      <Header heading="Notekeeper App" className="main-header" />
+      <main className="main-content">
+        <CreateNoteForm notes={notes} handleSetNotes={handleSetNotes} />
+        <NotesList notes={notes} handleSetNotes={handleSetNotes} />
+      </main>
+      <Footer />
     </>
   );
 }
