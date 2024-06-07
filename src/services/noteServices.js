@@ -9,9 +9,13 @@ const URL_PATH = "notes";
 const getNotes = () => {
   console.log(`getNotes URL: ${BASE_URL}/${URL_PATH}`);
   return http.get({
+    url: BASE_URL,
     resourcePath: URL_PATH,
   });
 };
+
+
+
 
 const deleteNote = (noteID) => {
   console.log(`deleteNote URL: ${BASE_URL}/${URL_PATH}/${noteID}`);

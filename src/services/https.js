@@ -1,83 +1,31 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const getData = ({ url, resourcePath }) => {
+  console.log('URL recibida en getData:', url);
+  console.log('resourcePath recibido en getData:', resourcePath);
+  
+  const URL_TO_FETCH = `${url}/${resourcePath}`;
 
-console.log(`BASE_URL: ${BASE_URL}`);
-
-const getData = async ({ resourcePath }) => {
-  const URL_TO_FETCH = `${BASE_URL}/${resourcePath}`;
-  console.log(`Fetching data from: ${URL_TO_FETCH}`);
-  try {
-    const response = await fetch(URL_TO_FETCH);
-    if (!response.ok) {
-      throw new Error(`Server Error: ${response.statusText}`);
-    }
-    const contentType = response.headers.get("content-type");
-    if (!contentType || !contentType.includes("application/json")) {
-      throw new Error("Response is not JSON");
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Fetch error:', error);
-    throw error;
-  }
+  return globalThis.fetch(URL_TO_FETCH).then((response) => response.json());
 };
 
-
-
-const deleteData = async ({ resourcePath }) => {
-  const URL_TO_FETCH = `${BASE_URL}/${resourcePath}`;
-  console.log(`Deleting data from: ${URL_TO_FETCH}`);
-  try {
-    const response = await fetch(URL_TO_FETCH, { method: "DELETE" });
-    if (!response.ok) {
-      throw new Error(`Server Error: ${response.statusText}`);
-    }
-    const contentType = response.headers.get("content-type");
-    if (!contentType || !contentType.includes("application/json")) {
-      throw new Error("Response is not JSON");
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Delete error:', error);
-    throw error;
-  }
+const deleteData = ({ url, resourcePath }) => {
+  const URL_TO_FETCH = `${url}/${resourcePath}`;
+  return globalThis
+    .fetch(URL_TO_FETCH, { method: "DELETE" })
+    .then((response) => response.json());
 };
 
-const createData = async ({ resourcePath, config }) => {
-  const URL_TO_FETCH = `${BASE_URL}/${resourcePath}`;
-  console.log(`Creating data at: ${URL_TO_FETCH}`);
-  try {
-    const response = await fetch(URL_TO_FETCH, config);
-    if (!response.ok) {
-      throw new Error(`Server Error: ${response.statusText}`);
-    }
-    const contentType = response.headers.get("content-type");
-    if (!contentType || !contentType.includes("application/json")) {
-      throw new Error("Response is not JSON");
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Create error:', error);
-    throw error;
-  }
+const createData = ({ url, resourcePath, config }) => {
+  const URL_TO_FETCH = `${url}/${resourcePath}`;
+  return globalThis
+    .fetch(URL_TO_FETCH, config)
+    .then((response) => response.json());
 };
 
-const updateData = async ({ resourcePath, config }) => {
-  const URL_TO_FETCH = `${BASE_URL}/${resourcePath}`;
-  console.log(`Updating data at: ${URL_TO_FETCH}`);
-  try {
-    const response = await fetch(URL_TO_FETCH, config);
-    if (!response.ok) {
-      throw new Error(`Server Error: ${response.statusText}`);
-    }
-    const contentType = response.headers.get("content-type");
-    if (!contentType || !contentType.includes("application/json")) {
-      throw new Error("Response is not JSON");
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Update error:', error);
-    throw error;
-  }
+const updateData = ({ url, resourcePath, config }) => {
+  const URL_TO_FETCH = `${url}/${resourcePath}`;
+  return globalThis
+    .fetch(URL_TO_FETCH, config)
+    .then((response) => response.json());
 };
 
 export const http = {
