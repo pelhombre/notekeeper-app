@@ -1,4 +1,4 @@
-import { noteServices } from "../../services";
+import { noteServices } from "../../services/noteServices.js";
 
 export const handleDeleteNote = (noteID, handleSetNotes) => {
   noteServices
