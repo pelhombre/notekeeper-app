@@ -4,5 +4,11 @@ export const handleDeleteNote = (noteID, handleSetNotes) => {
   noteServices
     .deleteNote(noteID)
     .then(() => noteServices.getNotes())
-    .then((notes) => handleSetNotes([...notes]));
+    .then(({ notes }) => {
+      const notesWithNumberIds = notes.map(note => ({
+        ...note,
+        id: Number(note.id)
+      }));
+      handleSetNotes(notesWithNumberIds);
+    });
 };

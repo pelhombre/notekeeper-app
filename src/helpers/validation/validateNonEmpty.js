@@ -4,7 +4,7 @@ export const validateNonEmpty = (validatingObject) => {
   );
 
   const isNotEmpty = stringProperties.every(
-    (stringProperty) => stringProperty !== "",
+    (stringProperty) => stringProperty.trim() !== "", 
   );
 
   return isNotEmpty;

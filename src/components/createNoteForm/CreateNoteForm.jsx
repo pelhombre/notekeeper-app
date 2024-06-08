@@ -7,12 +7,14 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const formElements = event.target.elements;
+
     const newNote = {
-      name: event.target.elements.name.value,
-      description: event.target.elements.description.value,
-      important: event.target.elements.important.checked,
-      status: event.target.elements.status.value,
-      dueDate: event.target.elements.dueDate.value,
+      name: formElements.name?.value,
+      description: formElements.description?.value,
+      important: formElements.important?.checked,
+      status: formElements.status?.value,
+      dueDate: formElements.dueDate?.value,
     };
 
     handleCreateNote(newNote, notes, handleSetNotes);
@@ -27,7 +29,7 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
       <label className="input-label" htmlFor="name">
         Name
       </label>
-      <input className="form-input" id="name" type="text" name="name" />
+      <input className="form-input" id="name" type="text" name="name" required />
       <label className="input-label" htmlFor="description">
         Description
       </label>
@@ -37,11 +39,12 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
         id="description"
         type="text"
         name="description"
+        required
       />
       <label className="input-label" htmlFor="dueDate">
         Due date
       </label>
-      <input className="form-input" id="dueDate" type="date" name="dueDate" />
+      <input className="form-input" id="dueDate" type="date" name="dueDate" required />
       <fieldset className="form-fieldset">
         <input
           className="checkbox-input"
@@ -54,7 +57,7 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
         </label>
         <DropdownList selectedStatus={selectedStatusValue} OPTIONS={STATUS} />
       </fieldset>
-      <Button className="submit-button" type="submit" action={handleSubmit} label="Create Note" />
+      <Button className="submit-button" type="submit" label="Create Note" />
     </form>
   );
 };
