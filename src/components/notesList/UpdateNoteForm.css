@@ -1,0 +1,43 @@
+.update-note__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0 0 10px 10px;
+}
+
+.input-label {
+  align-self: baseline;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+
+.update-note__form .form-input {
+  border-radius: 5px;
+  height: 2.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  font-size: 25px;
+  background: rgb(244, 244, 244);
+  height: 100%;
+  resize: none;
+}
+
+.form-fieldset {
+  display: flex;
+  gap: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.checkbox-input {
+  width: 1.5rem;
+}

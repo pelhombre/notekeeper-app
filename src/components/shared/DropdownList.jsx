@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import "./DropdownList.css";
 
-const DropdownList = ({ selectedStatus, OPTIONS }) => {
+export const DropdownList = ({ selectedStatus, OPTIONS }) => {
   return (
     <select id="status" className="dropdown-list" defaultValue={selectedStatus}>
       {Object.values(OPTIONS).map((option, index) => (
@@ -11,10 +11,3 @@ const DropdownList = ({ selectedStatus, OPTIONS }) => {
     </select>
   );
 };
-
-DropdownList.propTypes = {
-  selectedStatus: PropTypes.string.isRequired,
-  OPTIONS: PropTypes.object.isRequired
-};
-
-export { DropdownList }; 
