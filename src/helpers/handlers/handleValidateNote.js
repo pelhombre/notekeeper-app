@@ -2,9 +2,11 @@ import { validateEnum, validateNonEmpty, validateType } from "../validation";
 import { STATUS } from "../../data";
 
 export const handleValidateNote = (note) => {
-  validateNonEmpty(note.name);
-  validateNonEmpty(note.description);
-  validateType(note.important, 'boolean');
-  validateEnum(note.status, Object.values(STATUS));
-  validateNonEmpty(note.dueDate);
+  const isNonEmpty = validateNonEmpty(note);
+  const isValidType = validateType(note);
+  const isValidStatus = validateEnum(note.status, STATUS);
+
+  console.log("Validation results:", { isNonEmpty, isValidType, isValidStatus });
+
+  return isNonEmpty && isValidType && isValidStatus;
 };

@@ -4,7 +4,6 @@ import { handleUpdateNote } from "../../helpers/handlers/handleUpdateNote.js";
 import { Button, DropdownList } from "../shared";
 import { useImportance } from "../../hooks/useImportance";
 
-
 export const UpdateNoteForm = ({
   updatingNote,
   notes,
@@ -18,13 +17,15 @@ export const UpdateNoteForm = ({
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const formElements = event.target.elements;
+
     const modifiedNote = {
       ...updatingNote,
-      name: event.target.elements.name.value,
-      description: event.target.elements.description.value,
-      important: event.target.elements.important.checked,
-      status: event.target.elements.status.value,
-      dueDate: event.target.elements.dueDate.value,
+      name: formElements.name?.value,
+      description: formElements.description?.value,
+      important: formElements.important?.checked,
+      status: formElements.status?.value,
+      dueDate: formElements.dueDate?.value,
     };
 
     handleUpdateNote(modifiedNote, notes, handleSetNotes);
@@ -44,12 +45,13 @@ export const UpdateNoteForm = ({
         rows="3"
         className="form-input"
         id="description"
-        type="text"
+        name="description"  // Añadir el nombre aquí
         defaultValue={updatingNote.description}
       />
       <input
         className="form-input"
         id="dueDate"
+        name="dueDate"  // Añadir el nombre aquí
         type="date"
         defaultValue={updatingNote.dueDate}
       />
@@ -57,8 +59,8 @@ export const UpdateNoteForm = ({
         <input
           className="checkbox-input"
           id="important"
+          name="important"  // Añadir el nombre aquí
           type="checkbox"
-          name="important"
           checked={importance}
           onChange={handleSetImportance}
         />
@@ -74,7 +76,11 @@ export const UpdateNoteForm = ({
           label="Cancel"
           action={handleSetUpdate}
         />
-        <Button className="save-button" type="submit" label="Save" />
+        <Button
+          className="save-button"
+          type="submit"
+          label="Save"
+        />
       </div>
     </form>
   );
