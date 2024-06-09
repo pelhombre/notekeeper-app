@@ -5,13 +5,19 @@ export const useNotes = () => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    noteServices.getNotes().then(({ notes }) => {
-      const notesWithNumberIds = notes.map(note => ({
-        ...note,
-        id: Number(note.id)
-      }));
-      setNotes(notesWithNumberIds);
-    });
+    noteServices.getNotes()
+      .then((data) => {
+        if (data && Array.isArray(data.notes)) {
+          const notesWithNumberIds = data.notes.map(note => ({
+            ...note,
+            id: Number(note.id)
+          }));
+          setNotes(notesWithNumberIds);
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching notes:", error);
+      });
   }, []);
 
   const handleSetNotes = (newNotes) => {

@@ -13,7 +13,6 @@ export const NotesList = ({ notes, handleSetNotes }) => {
         <NoteItem
           key={index}
           note={note}
-          notes={notes}
           handleSetNotes={handleSetNotes}
         />
       ))}

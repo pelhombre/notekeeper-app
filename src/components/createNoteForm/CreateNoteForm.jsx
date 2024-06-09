@@ -57,8 +57,8 @@ export const CreateNoteForm = ({ notes, handleSetNotes }) => {
         </label>
         <DropdownList selectedStatus={selectedStatusValue} OPTIONS={STATUS} />
       </fieldset>
-      <Button className="submit-button" type="submit" label="Create Note" />
-    </form>
+      <Button className="submit-button" type="submit" action={handleSubmit} label="Create Note" />
+      </form>
   );
 };
 

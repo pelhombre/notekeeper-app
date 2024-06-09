@@ -1,29 +1,18 @@
 import { http } from "./https.js";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
-if (!BASE_URL) {
-  console.error("BASE_URL is not defined. Please check your environment variables.");
-} else {
-  console.log(`Note Services BASE_URL: ${BASE_URL}`);
-}
-
 const URL_PATH = "notes";
+
+console.log(`Note Services BASE_URL: ${BASE_URL}`);
 
 const getNotes = () => {
   console.log(`getNotes URL: ${BASE_URL}/${URL_PATH}`);
-  return http.get({
-    url: BASE_URL,
-    resourcePath: URL_PATH,
-  });
+  return http.get({ url: BASE_URL, resourcePath: URL_PATH });
 };
 
 const deleteNote = (noteID) => {
   console.log(`deleteNote URL: ${BASE_URL}/${URL_PATH}/${noteID}`);
-  return http.delete({
-    url: BASE_URL,
-    resourcePath: `${URL_PATH}/${noteID}`,
-  });
+  return http.delete({ url: BASE_URL, resourcePath: `${URL_PATH}/${noteID}` });
 };
 
 const createNote = (newNote) => {
