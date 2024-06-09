@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import "./Button.css";
 
 export const Button = ({ className, type, action, label }) => {
   return (
@@ -6,11 +6,4 @@ export const Button = ({ className, type, action, label }) => {
       {label}
     </button>
   );
-};
-
-Button.propTypes = {
-  className: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  action: PropTypes.func.isRequired, 
-  label: PropTypes.string.isRequired,
 };

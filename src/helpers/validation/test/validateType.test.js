@@ -1,5 +1,5 @@
 import { validateType } from "../validateType";
-import { describe, test, expect } from "@jest/globals";
+import { describe, test, expect } from "vitest";
 
 describe("Given note object", () => {
   const STATUS = {

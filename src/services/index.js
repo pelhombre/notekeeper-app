@@ -1,2 +1,1 @@
-export { noteServices } from "./noteServices.js";
-export { http } from './https.js';
+export { noteServices } from "./noteServices";

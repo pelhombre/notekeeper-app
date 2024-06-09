@@ -13,5 +13,3 @@ export const handleUpdateNote = (modifiedNote, notes, handleSetNotes) => {
       })
     : console.log("Validation Unsuccessful");
 };
-
-export { handleDeleteNote } from './handleDeleteNote';

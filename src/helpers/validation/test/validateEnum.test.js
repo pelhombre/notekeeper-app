@@ -1,5 +1,5 @@
 import { validateEnum } from "../validateEnum";
-import { describe, test, expect } from "@jest/globals";
+import { describe, test, expect } from "vitest";
 
 describe("Given enum property and expected values object", () => {
   const STATUS = {

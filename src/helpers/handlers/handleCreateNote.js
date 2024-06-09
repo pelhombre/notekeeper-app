@@ -1,21 +1,12 @@
 import { noteServices } from "../../services";
-import { handleValidateNote } from "./handleValidateNote.js";
+import { handleValidateNote } from "./handleValidateNote";
 
 export const handleCreateNote = (newNote, notes, handleSetNotes) => {
-  console.log("New note for validation:", newNote); 
-  const validationStatus = handleValidateNote(newNote);
+  const validationSuccess = handleValidateNote(newNote);
 
-  if (validationStatus) {
-    noteServices
-      .createNote(newNote)
-      .then((createdNote) => {
-        console.log("New note created:", createdNote);
-        handleSetNotes([...notes, createdNote]);
+  validationSuccess
+    ? noteServices.createNote(newNote).then((newNote) => {
+        handleSetNotes([...notes, newNote]);
       })
-      .catch((error) => {
-        console.error("Error creating note:", error);
-      });
-  } else {
-    console.log("Validation unsuccessful");
-  }
+    : console.log("Validation Unsuccessful");
 };

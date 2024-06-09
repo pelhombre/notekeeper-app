@@ -4,7 +4,7 @@ export const useUpdate = () => {
   const [update, setUpdate] = useState(false);
 
   const handleSetUpdate = () => {
-    setUpdate(!update);
+    setUpdate((prevState) => !prevState);
   };
 
   return {
